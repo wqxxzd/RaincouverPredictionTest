@@ -19,8 +19,8 @@ dependencies:
   - vega_datasets  # Altair example data
   - scipy
   - matplotlib>=3.2.2
-  - scikit-learn>=1.1.3
-  - requests>=2.24.0
+  - scikit-learn>=1.3.2  # Updated to remove future warning when running cross-validate
+  - requests>=2.24.0  # 
   - graphviz
   - python-graphviz
   - eli5
@@ -29,7 +29,7 @@ dependencies:
   - selenium<4.3.0
   - lightgbm
   - pip:
-    - joblib==1.1.0
+    - joblib==1.3.2  # Updated to remove future warning when running cross-validate
     - mglearn
     - otter-grader
     - psutil>=5.7.2
