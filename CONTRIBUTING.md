@@ -1,4 +1,4 @@
-# Contributing to the Weather Forecast Project
+# Contributing to the Raincouver Prediction Project
 
 ### Quick fixes
 For minor corrections such as typos or grammatical errors in documentation:
