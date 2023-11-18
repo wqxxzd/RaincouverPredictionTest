@@ -34,7 +34,7 @@ and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
 
 - `conda` (version 23.7.4 or higher)
 - `nb_conda_kernels` (version 2.3.1 or higher)
-- Python and packages listed in [`environment.yml`](environment.yml)
+- Python and packages listed in [`environment.yaml`](environment.yaml)
 
 ## License
 
