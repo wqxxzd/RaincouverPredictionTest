@@ -1,7 +1,8 @@
 # Raincouver Precipitation Prediction
+☀️🌤️⛅️🌥️☁️🌦️🌧️⛈️🌩️🌨️❄️
   - author: Dan Zhang, Doris (Yun Yi) Cai, Hayley (Yi) Han & Sivakorn (Oak) Chong
 
-## Project Overview ☀️🌤️⛅️🌥️☁️🌦️🌧️⛈️🌩️🌨️❄️
+## Project Overview 
 
 Prediction of daily precipitation is a fundamental aspect of meteorological studies [1]. Accurate precipitation prediction is crucial for agriculture, water resources management, as well as daily activities of people. Specifically, in a geographically and climatically diverse region like Vancouver, predicting precipitation is vital for people to prepare for extreme weather events, reducing hazards and minimizing property damage.
 
