@@ -1,7 +1,7 @@
 # Install the course conda environment by running 
 # the following command in your conda base environment:
 # conda env create -f environment.yaml
-name: 'dsci_522_group9'
+name: 'raincouver_prediction_env'
 channels:
   - conda-forge
   - defaults
