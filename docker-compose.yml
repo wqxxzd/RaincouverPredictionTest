@@ -1,0 +1,14 @@
+services:
+  jupyter:
+    image: wqxxzd/raincouver-prediction-images:fff1535
+    volumes:
+      - .:/home/jovyan/work
+    ports:
+      - 8888:8888
+    environment:
+      PASSWORD: password
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64
