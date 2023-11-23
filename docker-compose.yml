@@ -1,0 +1,9 @@
+services:
+  jupyter:
+    image: quay.io/jupyter/minimal-notebook:2023-11-19
+    volumes:
+      - .:/home/jovyan/work
+    ports:
+      - 8888:8888
+    environment:
+      PASSWORD: password
