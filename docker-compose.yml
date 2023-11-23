@@ -7,3 +7,8 @@ services:
       - 8888:8888
     environment:
       PASSWORD: password
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64
