@@ -11,4 +11,4 @@ RUN conda install -c conda-forge -c defaults -y \
     scikit-learn \
     requests
 
-RUN pip install openmeteo-requests requests-cache retry-requests
+RUN pip install openmeteo-requests requests-cache
