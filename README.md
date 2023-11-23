@@ -10,7 +10,7 @@ The dataset we used in this project contains daily precipitation information in 
 
 ## Report
 
-The final report will be available when the report [page]() is created.
+The final report is available [page](https://ubc-mds.github.io/RaincouverPrediction/).
 
 ## Usage
 
