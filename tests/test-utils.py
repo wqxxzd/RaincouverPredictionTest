@@ -11,21 +11,21 @@ from src.utils import encode
 # Test data
 test_data = pd.DataFrame({'month': [1, 4, 7, 10]})
 
-# # Test for correct input data types
-# def test_encode_input_data_types():
-#     with pytest.raises(TypeError):
-#         encode("not_a_dataframe", 'month', 12)
-#     with pytest.raises(TypeError):
-#         encode(test_data, 123, 12)
-#     with pytest.raises(TypeError):
-#         encode(test_data, 'month', "not_a_number")
+# Test for correct input data types
+def test_encode_input_data_types():
+    with pytest.raises(TypeError):
+        encode("not_a_dataframe", 'month', 12) # first input is not a pandas data frame
+    with pytest.raises(KeyError):
+        encode(test_data, 123, 12) # column input is not a string
+    with pytest.raises(TypeError):
+        encode(test_data, 'month', "not_a_number") # max_val is not a number
 
 # Test for error handling with invalid column name
 def test_encode_invalid_column_name():
     with pytest.raises(KeyError):
         encode(test_data, 'invalid_column', 12)
         
-# Additional Test: Handling of negative max_val
+# Test for handling of negative max_val
 def test_encode_negative_max_val():
     with pytest.raises(ValueError):
         encode(test_data, 'month', -12)
