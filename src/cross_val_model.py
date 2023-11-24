@@ -8,6 +8,12 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from datetime import datetime as dt
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score, cross_validate
+from sklearn.tree import DecisionTreeClassifier
+import numpy as np
+import pandas as pd
+
 
 def cross_val_model(preprocessor, models, X_train, y_train, classification_metrics):
     """
@@ -54,7 +60,7 @@ def cross_val_model(preprocessor, models, X_train, y_train, classification_metri
 
     cross_val_results = {}
     for model in models:
-        pipe = make_pipeline(preprocess, models[model])
+        pipe = make_pipeline(preprocessor, models[model])
         cross_val_results[model] = pd.DataFrame(cross_validate(pipe, 
                                        X_train, 
                                        y_train, 
