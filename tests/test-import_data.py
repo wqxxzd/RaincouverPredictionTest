@@ -3,7 +3,7 @@ import pytest
 import sys
 import os
 
-# Import the count_classes function from the src folder
+# Import the get_vancouver_data function from the src folder
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.get_api import get_vancouver_data
 
