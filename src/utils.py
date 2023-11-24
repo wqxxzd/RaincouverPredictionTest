@@ -42,7 +42,8 @@ def encode(data, col, max_val):
     value, the cycle starts again from the lowest.
     
     """
-    # Encode the feature using sine and cosine transformations
+    if max_val <= 0:
+        raise ValueError("max_val must be positive")
 
     data[col + '_sin'] = np.sin(2 * np.pi * data[col]/max_val)
     data[col + '_cos'] = np.cos(2 * np.pi * data[col]/max_val)
