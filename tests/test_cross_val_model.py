@@ -15,7 +15,7 @@ from sklearn.svm import SVC
 
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.cross_val_model import cross_val_model 
+from src.utils import cross_val_model 
 
 
 # Create a sample dataset for testing
