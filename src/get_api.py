@@ -6,6 +6,32 @@ from retry_requests import retry
 from datetime import datetime, timedelta
 
 def get_vancouver_data(start_date, end_date, create_csv = False):
+    """
+    Creates a new DataFrame with 18 columns, containing weather observations for each date between 
+    the start and end dates in Vancouver. Data is extracted via API from  Open-Meteo’s Historical Weather 
+    API. Each row in the dataset includes weather measurement statistics in a day. 
+
+    Parameters:
+    ----------
+    start_date : str
+        A string in YYYY-MM-DD format (e.g. "1990-01-01") that the weather API will start extracting from.
+    end_date : str
+        A string in YYYY-MM-DD format (e.g. "2000-01-01") that the weather API will conclude the query.
+    create_csv: bool
+        A boolean. If true, a csv file will be created in data folder, populated with weather data. False by default. 
+
+    Returns:
+    -------
+    pandas.DataFrame
+        A DatetimeIndex DataFrame with 18 columns, containing weather observations for each date 
+        between the start and end dates. 
+        
+    Examples:
+    --------
+    >>> precipit_df = get_vancouver_data(start_date, end_date, create_csv=True)
+
+    """
+
     # Setup the Open-Meteo API client with cache and retry on error
     cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
     retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
@@ -15,7 +41,11 @@ def get_vancouver_data(start_date, end_date, create_csv = False):
     VAN_LONG = -123.1193
     START_DATE = start_date # default to "1990-01-01"
     END_DATE = end_date # default to (datetime.now() - timedelta(days = 7)).strftime('%Y-%m-%d')
-    RETRIEVE_COLS = ["weather_code", "temperature_2m_max", "temperature_2m_min", "temperature_2m_mean", "apparent_temperature_max", "apparent_temperature_min", "apparent_temperature_mean", "sunrise", "sunset", "precipitation_sum", "rain_sum", "snowfall_sum", "precipitation_hours", "wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant", "shortwave_radiation_sum", "et0_fao_evapotranspiration"]
+    RETRIEVE_COLS = ["weather_code", "temperature_2m_max", "temperature_2m_min", "temperature_2m_mean", 
+                     "apparent_temperature_max", "apparent_temperature_min", "apparent_temperature_mean", 
+                     "sunrise", "sunset", "precipitation_sum", "rain_sum", "snowfall_sum", "precipitation_hours", 
+                     "wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant", "shortwave_radiation_sum",
+                     "et0_fao_evapotranspiration"]
     
     
     # Make sure all required weather variables are listed here
