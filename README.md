@@ -1,6 +1,6 @@
 # Raincouver Precipitation Prediction
 ☀️🌤️⛅️🌥️☁️🌦️🌧️⛈️🌩️🌨️❄️
-  - author: Dan Zhang, Doris (Yun Yi) Cai, Hayley (Yi) Han & Sivakorn (Oak) Chong
+Author: Dan Zhang, Doris (Yun Yi) Cai, Hayley (Yi) Han & Sivakorn (Oak) Chong
 
 ## Project Overview 
 
@@ -12,34 +12,67 @@ The dataset we used in this project contains daily precipitation information in 
 
 The final report is available [page](https://ubc-mds.github.io/RaincouverPrediction/).
 
-## Usage
-
-Before the first time running the project, run the following from the root of this repository:
-
-``` bash
-conda env create -f environment.yaml
-```
-
-To run the analysis, run the following from the root of this repository:
-
-``` bash
-conda activate raincouver_prediction_env
-jupyter lab 
-```
-
-Open `src/weather_forecast.ipynb` in Jupyter Lab
-and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
-
 ## Dependencies
 
-- `conda` (version 23.7.4 or higher)
-- `nb_conda_kernels` (version 2.3.1 or higher)
-- Python and packages listed in [`environment.yaml`](environment.yaml)
+- Docker is used in this project for software dependencies management. The Docker [image]() for this this project is built up on `quay.io/jupyter/minimal-notebook:2023-11-19`. In the [Dockerfile](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/Dockerfile), it specifies additional packages and dependencies required for this project.
+
+## Usage
+
+#### Setup:
+
+1. Clone the GitHub repo using the following command:
+   ```
+   git clone
+   ```
+   
+2. [Install](https://www.docker.com/get-started/) and launch Docker on local computer and keep it run.
+
+#### Analysis:
+
+3. On terminal, navigate to the project local root directry and run the following command to start and run the container:
+   ```
+   docker compose up
+   ```
+   Note: please ensure your localhost port 8888:8888 is not occupied before you run the command above.
+   
+5. To bring up the web app for Jupyter Notebook in the container, look for the url starting with `http://127.0.0.1:8888/lab?token=` in terminal and copy it to browser.
+
+6. to run the analysis, navigate to and open up the `notebooks/milestone2/weather_forecast.ipynb` in the Jupyter Notebook web app, click "Restart Kernel and Run All Cells..." under the "Kernel" menu.
+
+#### Exit container:
+
+7. In terminal, hit `Cntrl` + `C` to stop running the container. Then use the following command to remove the container:
+   ```
+   docker compose rm -f
+   ```
 
 ## License
 
 The Raincouver Precipitation Prediction materials are licensed under [MIT License](https://opensource.org/license/mit/). If re-using/re-mixing please provide attribution and link to this webpage.
 
+## Developer notes
+
+#### Adding a new dependency
+1. Create a new branch and add new dependency to the [Dockerfile](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/Dockerfile) file, re-build the Docker image using
+```
+docker compose up
+```
+to ensure it works properly.
+   
+4. Once the updated `Dockerfile` is pushed to GitHub, a new docker image and tag created by the new `Dockerfile` will be synchronized and publish to Docker Hub automatically as the workflow has been set up on Github repository for this project.
+ 
+5. Update the image acorrdingly in the [docker-compose.yml](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/docker-compose.yml) file and ensure the container launches properly
+
+6. Commit the changes on `docker-compose.yml` to the project repo.
+
+7. Send PR to merge changes to 'main' branch.
+
+#### Running the tests
+Navigate to the project root directory and use the following command in terminal to test the [functions](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/src) defined in the projects:
+```
+pytest tests/<function script files>
+```
+Tests are stored in [here](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/tes).
 
 ## Reference
 
