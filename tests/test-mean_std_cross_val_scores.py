@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 # Import the get_vancouver_data function from the src folder
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.mean_std_cross_val_scores import mean_std_cross_val_scores
+from src.utils import mean_std_cross_val_scores
 
 # Test for empty training data
 def test_empty_data():
