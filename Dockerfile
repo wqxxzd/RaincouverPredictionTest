@@ -9,11 +9,15 @@ RUN conda install -c conda-forge -c defaults -y \
     scipy \
     matplotlib \ 
     scikit-learn \
-    requests 
-    
+    requests \
+    vl-convert-python \
+    vega_datasets \
+    graphviz \
+    python-graphviz \
+    eli5 \
+    shap \
+    jinja2 \
+    selenium<4.3.0 \
+    lightgbm
 
-RUN pip install openmeteo-requests requests-cache retry-requests
-
-RUN pip install vl-convert-python==1.1.0
-
-RUN pip install pytest
+RUN pip install openmeteo-requests requests-cache retry-requests pytest joblib==1.3.2 mglearn psutil>=5.7.2
