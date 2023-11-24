@@ -9,6 +9,7 @@ RUN conda install -c conda-forge -c defaults -y \
     scipy \
     matplotlib \ 
     scikit-learn \
-    requests
+    requests \
+    vl-convert-python=1.1.0
 
 RUN pip install openmeteo-requests requests-cache retry-requests
