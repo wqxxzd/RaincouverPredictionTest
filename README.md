@@ -21,20 +21,16 @@ The final report is available [page](https://ubc-mds.github.io/RaincouverPredict
 
 #### Setup:
 
-1. Clone the GitHub repo using the following command:
-   ```
-   git clone <http/ssh link>
-   ```
+1. Clone the GitHub repository for this project.
    
 2. [Install](https://www.docker.com/get-started/) and launch Docker on local computer and keep it run.
 
 #### Analysis:
 
-3. On terminal, navigate to the project local root directry and run the following command to start and run the container:
+3. On terminal, navigate to the project local root directry and run the following command to start and run the container. Note: please ensure your localhost port 8888:8888 is not occupied before you run the command above.
    ```
    docker compose up
    ```
-   Note: please ensure your localhost port 8888:8888 is not occupied before you run the command above.
    
 4. To bring up the web app for Jupyter Notebook in the container, look for the url starting with `http://127.0.0.1:8888/lab?token=` in terminal and copy it to browser.
 
@@ -54,12 +50,11 @@ The Raincouver Precipitation Prediction materials are licensed under [MIT Licens
 ## Developer notes
 
 #### Adding a new dependency
-1. Create a new branch and add new dependency to the [Dockerfile](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/Dockerfile) file, re-build the Docker image using
+1. Create a new branch and add new dependency to the [Dockerfile](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/Dockerfile) file, re-build the Docker image using the following commmand to ensure it works properly.
 ```
 docker compose up
 ```
-to ensure it works properly.
-   
+
 2. Once the updated `Dockerfile` is pushed to GitHub, a new docker image and tag created by the new `Dockerfile` will be synchronized and publish to Docker Hub automatically as the workflow has been set up on Github repository for this project.
  
 3. Update the image acorrdingly in the [docker-compose.yml](https://github.com/UBC-MDS/RaincouverPrediction/blob/main/docker-compose.yml) file and ensure the container launches properly
@@ -69,11 +64,11 @@ to ensure it works properly.
 5. Send PR to merge changes to 'main' branch.
 
 #### Running the tests
-Navigate to the project root directory and use the following command in terminal to test the [functions](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/src) defined in the projects:
+Navigate to the project root directory and use the following command in terminal to test the [functions](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/src) defined in the projects. Tests are stored in [here](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/test).
 ```
-pytest tests/<function script files>
+pytest test/*
 ```
-Tests are stored in [here](https://github.com/UBC-MDS/RaincouverPrediction/tree/main/tests).
+
 
 ## Reference
 
