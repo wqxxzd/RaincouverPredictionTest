@@ -1,6 +1,6 @@
 services:
   jupyter:
-    image: wqxxzd/raincouver-prediction-images:668c7b7
+    image: wqxxzd/raincouver-prediction-images:latest
     volumes:
       - .:/home/jovyan/work
     ports:
