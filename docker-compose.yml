@@ -1,12 +1,10 @@
 services:
   jupyter:
-    image: wqxxzd/raincouver-prediction-images:58e771c
+    image: wqxxzd/raincouver-prediction-images:latest
     volumes:
       - .:/home/jovyan/work
     ports:
       - 8888:8888
-    environment:
-      PASSWORD: password
     deploy:
       resources:
         limits:
