@@ -14,11 +14,13 @@ name: Publish Docker image
 
 on: 
   push:
-    branches: [ "main", "feature/docker" ]
+    branches: 
+      - 'main'
     paths: 
       - 'Dockerfile'
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - 'main'
     paths: 
       - 'Dockerfile'
       
@@ -43,6 +45,7 @@ jobs:
           images: wqxxzd/raincouver-prediction-images
           tags: |
             type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
+            type=raw, value=latest, enable=${{ github.ref == 'refs/heads/main' }}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
