@@ -1,11 +1,12 @@
 import openmeteo_requests
 import requests_cache
 import pandas as pd
+import os
 
 from retry_requests import retry
 from datetime import datetime, timedelta
 
-def get_vancouver_data(start_date, end_date, create_csv = False):
+def get_vancouver_data(start_date, end_date, write_to = "", create_csv = False):
     """
     Creates a new DataFrame with 18 columns, containing weather observations for each date between 
     the start and end dates in Vancouver. Data is extracted via API from  Open-Meteo’s Historical Weather 
@@ -17,6 +18,8 @@ def get_vancouver_data(start_date, end_date, create_csv = False):
         A string in YYYY-MM-DD format (e.g. "1990-01-01") that the weather API will start extracting from.
     end_date : str
         A string in YYYY-MM-DD format (e.g. "2000-01-01") that the weather API will conclude the query.
+    write_to : str
+        A string path for the csv file to be stored.
     create_csv: bool
         A boolean. If true, a csv file will be created in data folder, populated with weather data. False by default. 
 
@@ -118,8 +121,18 @@ def get_vancouver_data(start_date, end_date, create_csv = False):
     df_van_weather = df_van_weather.set_index('date')
 
     if create_csv == True:  # Publish to CSV file if create_csv parameter is True
-        csv_filename = f'data/van_weather_{START_DATE}_{END_DATE}.csv'
-        df_van_weather.to_csv(csv_filename)
-        print(f'published to {csv_filename}')
+
+        # write_to path transforming
+        if write_to != '':
+            write_to =  write_to if write_to[-1] == '/' else write_to + '/'
+        
+        # Check write_to path existence
+        if not os.path.exists(write_to):
+            os.mkdir(write_to)
+
+        full_path = os.path.join(write_to, f'van_weather_{START_DATE}_{END_DATE}.csv')
+
+        df_van_weather.to_csv(full_path)
+        print(f'published to {full_path}')
         
     return df_van_weather
