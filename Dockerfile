@@ -10,7 +10,8 @@ RUN conda install -c conda-forge -c defaults -y \
     matplotlib=3.8.2 \ 
     scikit-learn=1.3.2 \
     requests=2.31.0 \
-    vl-convert-python=1.1.0
+    vl-convert-python=1.1.0 \
+    click=8.1.7
 
 RUN pip install openmeteo-requests==1.1.0 \
     requests-cache==1.1.1 \
