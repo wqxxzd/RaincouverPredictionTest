@@ -6,7 +6,7 @@ import os
 from retry_requests import retry
 from datetime import datetime, timedelta
 
-def get_vancouver_data(start_date, end_date, write_to = "", create_csv = False):
+def get_vancouver_data(url, start_date, end_date, write_to = "", create_csv = False):
     """
     Creates a new DataFrame with 18 columns, containing weather observations for each date between 
     the start and end dates in Vancouver. Data is extracted via API from  Open-Meteo’s Historical Weather 
@@ -14,6 +14,8 @@ def get_vancouver_data(start_date, end_date, write_to = "", create_csv = False):
 
     Parameters:
     ----------
+    url : str
+        A string url that serves as the API endpoint to get the data from
     start_date : str
         A string in YYYY-MM-DD format (e.g. "1990-01-01") that the weather API will start extracting from.
     end_date : str
@@ -53,7 +55,7 @@ def get_vancouver_data(start_date, end_date, write_to = "", create_csv = False):
     
     # Make sure all required weather variables are listed here
     # The order of variables in hourly or daily is important to assign them correctly below
-    url = "https://archive-api.open-meteo.com/v1/archive"
+    #url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
     	"latitude": VAN_LAT,
     	"longitude": VAN_LONG,
@@ -130,7 +132,7 @@ def get_vancouver_data(start_date, end_date, write_to = "", create_csv = False):
         if not os.path.exists(write_to):
             os.mkdir(write_to)
 
-        full_path = os.path.join(write_to, f'van_weather_{START_DATE}_{END_DATE}.csv')
+        full_path = os.path.join(write_to,'weather.csv')
 
         df_van_weather.to_csv(full_path)
         print(f'published to {full_path}')
