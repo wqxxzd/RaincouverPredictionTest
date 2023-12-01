@@ -42,7 +42,7 @@ def main(data_file, plot_to):
         columns=4
     )
     # Save histograms as PNG
-    numeric_cols_hists.save(os.path.join(plot_to, "feature_densities_by_class.png"),
+    numeric_cols_hists.save(os.path.join(plot_to, "histogram_numeric_features.png"),
               scale_factor=2.0)
 
     # Generate and save correlation table
