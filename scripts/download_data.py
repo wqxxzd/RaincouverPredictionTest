@@ -29,11 +29,11 @@ def main(url, start_date, end_date, write_to):
 
     Examples
     --------
-    $ python download_data.py \
+    $ python scripts/download_data.py \
         --url="https://archive-api.open-meteo.com/v1/archive" \
-        --start-date=2021-01-01 \
-        --end-date=2022-01-01 \
-        --write-to="../data"
+        --start-date=1990-01-01 \
+        --end-date=2023-11-06\
+        --write-to="./data"
     
     """
 
