@@ -47,9 +47,12 @@ def main(data_file, plot_to):
 
     # Generate and save correlation table
     correlation_table = precipit_df[numeric_cols].corr(method='spearman')
-    plt.figure(figsize=(10, 8))
-    sns.heatmap(correlation_table, annot=True, cmap="gist_yarg")
+    plt.figure(figsize=(12, 10))
+    sns.heatmap(correlation_table, annot=True, cmap="gist_yarg", fmt=".2f")
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.yticks(fontsize=10)
     plt.title("Correlation Table")
+    plt.tight_layout()
     plt.savefig(os.path.join(plot_to, "correlation_heatmap.png"))
 
     
