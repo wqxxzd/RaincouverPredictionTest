@@ -76,13 +76,27 @@ def main(x_train, y_train, x_test, y_test, preprocessor, columns_to_drop,
     plt.savefig(os.path.join(plot_to, "Feature_importance.png"))
 
     click.echo(f'Feature importance has been parked at {os.path.join(plot_to, "Feature_importance.png")}')
-    
+
     #Model type selection
     classification_metrics = ["accuracy", "precision", "recall", "f1"]
     results_df = cross_val_model(preprocess, models, X_train, y_train_class, classification_metrics)
 
     #Choose the model based on the best F1 score. 
     result_dict = results_df.loc['test_f1', :].to_dict()
+
+    # Create a bar chart with F1 scores all the tested models and publish it
+    plt.figure(figsize=(6, 6))
+    plt.bar(models.keys(), result_dict.values(), color='blue')
+    plt.xlabel('Models')
+    plt.ylabel('Test F1 Score')
+    plt.title('Test F1 Scores for Different Models')
+    plt.ylim(0.8, 0.9)  # Set the y-axis limit between 0 and 1 for F1 scores
+    plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+    plt.savefig(os.path.join(plot_to, "model_comparison.png"))
+    
+    click.echo(f'Model F1 performance has been parked at {os.path.join(plot_to, "model_comparison.png")}')
+    # Save the bar chart as an image
+    plt.tight_layout()
     
     #Get model name with max_score
     max_score = max(result_dict, key=result_dict.get)
