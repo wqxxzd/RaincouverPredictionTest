@@ -11,9 +11,11 @@ RUN conda install -c conda-forge -c defaults -y \
     scikit-learn=1.3.2 \
     requests=2.31.0 \
     vl-convert-python=1.1.0 \
-    click=8.1.7
+    click=8.1.7 \
+    libtiff=4.6.0
 
 RUN pip install openmeteo-requests==1.1.0 \
     requests-cache==1.1.1 \
     retry-requests==2.0.0 \
-    pytest==7.4.3
+    pytest==7.4.3 \     
+    myst-nb==1.0.0
