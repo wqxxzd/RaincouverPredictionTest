@@ -12,10 +12,12 @@ RUN conda install -c conda-forge -c defaults -y \
     requests=2.31.0 \
     vl-convert-python=1.1.0 \
     click=8.1.7 \
-    libtiff=4.6.0
+    libtiff=4.6.0 \
+    jupyter-book=0.15.1 \
+    seaborn=0.13.0
 
 RUN pip install openmeteo-requests==1.1.0 \
     requests-cache==1.1.1 \
     retry-requests==2.0.0 \
     pytest==7.4.3 \     
-    myst-nb==1.0.0
+    myst-nb==1.0.0 
