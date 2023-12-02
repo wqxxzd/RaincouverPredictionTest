@@ -29,7 +29,8 @@ def main(data_file, data_to, preprocessor_to, seed):
     as well as create the preprocessor for model training. '''
     np.random.seed(seed)
     
-    # Read the data-file from eda and remove features that are highly correlated with selected 
+    # Read the raw data file and remove features that are highly correlated with the selected 
+    #features based on the concludsion from EDA
     precipit_df = pd.read_csv(data_file)
     precipit_df['is_precipitation'] = precipit_df['precipitation_sum'] > 0.01
     precipit_df['date'] = pd.to_datetime(precipit_df['date'])
@@ -51,7 +52,7 @@ def main(data_file, data_to, preprocessor_to, seed):
                                             'precipitation_sum'])
     
 
-    # Split data set into 80% training set and 20% test set and exporting the train and test set
+    # Split data set into 80% training set and 20% test set
     train_df, test_df = train_test_split(
         precipit_df, test_size=0.2, random_state=seed
     )
@@ -66,21 +67,13 @@ def main(data_file, data_to, preprocessor_to, seed):
     X_train = encode(X_train, 'month', 12)
     X_test = encode(X_test, 'month', 12 )
 
-    numeric_features = ['temperature_2m_mean', 
-                        'wind_speed_10m_max',
-                        'wind_direction_10m_dominant', 
-                        'shortwave_radiation_sum',
-                        'et0_fao_evapotranspiration', 
-                        'month_sin', 
-                        'month_cos']
-
-    drop_features = ['month']
     
     numeric_transformer = StandardScaler()
 
     preprocess = make_column_transformer(
-        (numeric_transformer, numeric_features),
-        ("drop", drop_features)
+        (numeric_transformer, make_column_selector(dtype_include='number')),
+        remainder='passthrough',
+        verbose_feature_names_out=False
     )
 
     # Exporting X_train, y_train, X_test, y_test and preprocessor
