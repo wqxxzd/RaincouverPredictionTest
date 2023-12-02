@@ -34,5 +34,5 @@ def test_get_vancouver_data_date_index():
 
 # Test if the date in between the start and end dates is correctly displayed in datetimeindex
 def test_get_vancouver_data_date_mid_index():
-    result = get_vancouver_data(start_date, end_date)
+    result = get_vancouver_data(url, start_date, end_date)
     assert isinstance(result.loc["2010-01-05"], pd.Series), "Date supposed to exist, please verify function"
