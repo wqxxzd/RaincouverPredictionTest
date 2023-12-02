@@ -126,13 +126,13 @@ def get_vancouver_data(url, start_date, end_date, write_to = "", create_csv = Fa
 
         # write_to path transforming
         if write_to != '':
-            write_to =  write_to if write_to[-1] == '/' else write_to + '/'
+            write_to = write_to if write_to[-1] == '/' else write_to + '/'
         
         # Check write_to path existence
         if not os.path.exists(write_to):
             os.mkdir(write_to)
 
-        full_path = os.path.join(write_to,'weather.csv')
+        full_path = os.path.join(write_to, f'van_weather_{start_date}_{end_date}.csv')
 
         df_van_weather.to_csv(full_path)
         print(f'published to {full_path}')
