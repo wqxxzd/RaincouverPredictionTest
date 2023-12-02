@@ -19,5 +19,5 @@ RUN conda install -c conda-forge -c defaults -y \
 RUN pip install openmeteo-requests==1.1.0 \
     requests-cache==1.1.1 \
     retry-requests==2.0.0 \
-    pytest==7.4.3 \     
-    myst-nb==1.0.0 
+    pytest==7.4.3 \
+    myst-nb==0.17.2
