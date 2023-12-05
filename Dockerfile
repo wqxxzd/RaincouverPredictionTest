@@ -1,5 +1,13 @@
 FROM quay.io/jupyter/minimal-notebook:2023-11-19
 
+USER root
+RUN apt-get update && \
+    apt-get install -y make && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+USER $NB_UID
+
 RUN conda install -c conda-forge -c defaults -y \
     python=3.11.* \
     altair=5.1.2 \
