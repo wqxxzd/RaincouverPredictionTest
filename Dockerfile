@@ -2,7 +2,7 @@ FROM quay.io/jupyter/minimal-notebook:2023-11-19
 
 USER root
 RUN apt-get update && \
-    apt-get install -y make && \
+    apt-get install -y make=4.2.1-1.2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -29,5 +29,3 @@ RUN pip install openmeteo-requests==1.1.0 \
     retry-requests==2.0.0 \
     pytest==7.4.3 \
     myst-nb==0.17.2
-
-RUN apt-get install -y make=4.2.1-1.2 
