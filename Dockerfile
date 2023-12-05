@@ -2,7 +2,7 @@ FROM quay.io/jupyter/minimal-notebook:2023-11-19
 
 USER root
 RUN apt-get update && \
-    apt-get install -y make=4.2.1-1.2 && \
+    apt-get install -y make && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
