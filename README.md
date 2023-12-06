@@ -106,7 +106,7 @@ pytest test/*
 
 ## License
 
-The Raincouver Precipitation Prediction report contained herein are licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/). The software code are licensed under [MIT License](https://opensource.org/license/mit/). If re-using/re-mixing please provide attribution and link to this webpage. See [the license file](LICENSE.md) for more information.
+The Raincouver Precipitation Prediction report contained herein are licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/). The software code are licensed under [MIT License](https://opensource.org/license/mit/). If re-using/re-mixing please provide attribution and link to this webpage. See [the license file](LICENSE) for more information.
 
 
 ## Reference
