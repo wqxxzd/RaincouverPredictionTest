@@ -1,8 +1,12 @@
 # Contributing to the Raincouver Prediction Project
+### Founding Members
+You can find below for the original founding members' github IDs. 
+@sivakornchong @wqxxzd @dorisyycai @yhan178
 
 ### Quick fixes
 For minor corrections such as typos or grammatical errors in documentation:
 Please make changes directly via the GitHub web interface.
+For publication of changes, the adjustments would eventually be formalized only when it is published to main. These will follow Pull Request Process described below. 
 
 ### Prerequisites
 Before making a substantial pull request, you should always:
