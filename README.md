@@ -5,9 +5,9 @@ Author: Dan Zhang, Doris (Yun Yi) Cai, Hayley (Yi) Han & Sivakorn (Oak) Chong
 
 ## Project Overview 
 
-Our project investigates the prediction of daily precipitation in Vancouver using machine learning methods. Using a dataset spanning from 1990 to 2023, we explored the predictive power of some key environmental and cliamte features such as temperature, wind speed, and evapotranspiration. Our results suggest the best classification model is Support Vector Machine with Radial Basis Function (SVM RBF) model with the hyperparameter C=10.0. The model achieved a notable F1 score of 0.87 on the positive class (precipitation is present) when generalized to the unseen data, suggesting a high accuracy in precipitation prediction. We also explored feature importance, showing ET₀ reference evapotranspiration and the cosine transformation of months as robust predictors. Hyperparameter optimization did not make improvement to our curren model, indicating the potential need for feature engineering or incoportating more features. Our preject presents a reliable model for predicting precipitation with potential practical applications in various fields.
+Our project investigates the prediction of daily precipitation in Vancouver using machine learning methods. Using a dataset spanning from 1990 to 2023, we explored the predictive power of some key environmental and climate features such as temperature, wind speed, and evapotranspiration. Our results suggest the best classification model is the Support Vector Machine with Radial Basis Function (SVM RBF) model with the hyperparameter C=10.0. The model achieved a notable F1 score of 0.87 on the positive class (precipitation is present) when generalized to the unseen data, suggesting high accuracy in precipitation prediction. We also explored feature importance, showing ET₀ reference evapotranspiration and the cosine transformation of months as robust predictors. Hyperparameter optimization did not improve our current model, indicating the potential need for feature engineering or incorporating more features. Our project presents a reliable model for predicting precipitation with potential practical applications in various fields.
 
-The dataset we used in this project contains daily precipitation information in Vancouver from 1990 to the present (i.e., 6 Nov, 2023). It is sourced from Open-Meteo’s Historical [Weather API](https://doi.org/10.5281/ZENODO.7970649) [1]. Each row in the dataset includes weather measurement statistics in a day. The key measurements in our dataset are month, daily temperature measures, wind speeds, wind direction, shortwave radiation, and ET₀ reference evapotranspiration. Specifically, shortwave radiation represents the sum of solar energy received in a day; ET₀ reference evapotranspiration provides an indication of the atmospheric demand for moisture (i.e., higher relative humidity reduces ET₀ ); and month is also included as a variable since it accounts for the seasonal variations in precipitation [2]. 
+The dataset we used in this project contains daily precipitation information in Vancouver from 1990 to the present (i.e., 6 Nov 2023). It is sourced from Open-Meteo’s Historical [Weather API](https://doi.org/10.5281/ZENODO.7970649) [1]. Each row in the dataset includes weather measurement statistics in a day. The key measurements in our dataset are month, daily temperature measures, wind speeds, wind direction, shortwave radiation, and ET₀ reference evapotranspiration. Specifically, shortwave radiation represents the sum of solar energy received in a day; ET₀ reference evapotranspiration provides an indication of the atmospheric demand for moisture (i.e., higher relative humidity reduces ET₀); and month is also included as a variable since it accounts for the seasonal variations in precipitation [2].
 
 ## Report
 
@@ -70,7 +70,7 @@ python scripts/classification.py \
     --seed=522
 
 # build HTML report and copy build to docs folder
-jupyter-book build reports/milestone3
+jupyter-book build reports/milestone4
 cp -r reports/milestone3/_build/html/* docs
 ```
 
