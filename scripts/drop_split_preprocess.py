@@ -27,6 +27,24 @@ def main(data_file, data_to, preprocessor_to, seed):
     '''This script is to drop the features that are highly corrleted with 
     the selected features, to split the data into train and test sets, 
     as well as create the preprocessor for model training. '''
+    
+    # Create relevant file paths for outputs
+    # write_to path transforming
+    if data_to != '':
+        data_to = data_to if data_to[-1] == '/' else data_to + '/'
+            
+    # Check write_to path existence
+    if not os.path.exists(data_to):
+        os.mkdir(data_to)
+
+    # write_to path transforming
+    if preprocessor_to != '':
+        preprocessor_to = preprocessor_to if preprocessor_to[-1] == '/' else preprocessor_to + '/'
+            
+    # Check write_to path existence
+    if not os.path.exists(preprocessor_to):
+        os.mkdir(preprocessor_to)
+
     np.random.seed(seed)
     
     # Read the raw data file and remove features that are highly correlated with the selected 

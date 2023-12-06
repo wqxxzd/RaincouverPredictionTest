@@ -41,6 +41,14 @@ def main(data_file, plot_to):
         numeric_cols,
         columns=4
     )
+    # write_to path transforming
+    if plot_to != '':
+        plot_to = plot_to if plot_to[-1] == '/' else plot_to + '/'
+            
+    # Check write_to path existence
+    if not os.path.exists(plot_to):
+        os.mkdir(plot_to)
+
     # Save histograms as PNG
     numeric_cols_hists.save(os.path.join(plot_to, "histogram_numeric_features.png"),
               scale_factor=2.0)
