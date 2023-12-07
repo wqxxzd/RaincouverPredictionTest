@@ -55,7 +55,7 @@ def main(data_file, data_to, preprocessor_to, seed):
 
     Examples
     --------
-    python scripts/drop_split_preprocess.py \
+    $ python scripts/drop_split_preprocess.py \
       --data-file=data/van_weather_1990-01-01_2023-11-06.csv \
       --data-to=data/processed  \
       --preprocessor-to=results/models \
