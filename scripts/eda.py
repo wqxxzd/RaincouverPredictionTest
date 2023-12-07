@@ -78,7 +78,7 @@ def main(data_file, plot_to):
             
     # Check write_to path existence
     if not os.path.exists(plot_to):
-        os.mkdir(plot_to)
+        os.makedirs(plot_to)
 
     # Save histograms as PNG
     numeric_cols_hists.save(os.path.join(plot_to, "histogram_numeric_features.png"),
