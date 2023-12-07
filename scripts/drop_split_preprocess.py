@@ -24,9 +24,44 @@ from src.utils import encode
 @click.option('--seed', type=int, help="Random seed", default=522)
 
 def main(data_file, data_to, preprocessor_to, seed):
-    '''This script is to drop the features that are highly corrleted with 
-    the selected features, to split the data into train and test sets, 
-    as well as create the preprocessor for model training. '''
+    """
+    Processes a dataset by dropping highly correlated features, splitting it into training and test sets,
+    and creating a preprocessor for model training.
+
+    This script reads the raw data file, drops features that are highly correlated with selected features,
+    splits the data into an 80% training set and a 20% test set, and prepares a preprocessor for model training.
+
+    Parameters
+    ----------
+    data_file : str
+        Path to the raw data file.
+    data_to : str
+        Path to the directory where processed data (training and testing sets) will be written.
+    preprocessor_to : str
+        Path to the directory where the preprocessor object will be saved.
+    seed : int
+        Random seed for reproducibility. Default is 522.
+
+    Returns
+    -------
+    None
+        This function does not return any value but writes processed data and preprocessor object to specified paths.
+
+    Notes
+    -----
+    - The data is assumed to be in a CSV format compatible with pandas.read_csv.
+    - The script creates directories specified in `data_to` and `preprocessor_to` if they do not exist.
+    - The preprocessing involves encoding categorical variables and scaling numerical variables.
+
+    Examples
+    --------
+    python scripts/drop_split_preprocess.py \
+      --data-file=data/van_weather_1990-01-01_2023-11-06.csv \
+      --data-to=data/processed  \
+      --preprocessor-to=results/models \
+      --seed=522
+    """
+
     
     # Create relevant file paths for outputs
     # write_to path transforming
