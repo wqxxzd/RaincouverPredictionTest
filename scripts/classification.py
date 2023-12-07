@@ -35,7 +35,63 @@ from src.utils import cross_val_model
 
 def main(x_train, y_train, x_test, y_test, preprocessor, columns_to_drop,
          pipeline_to, plot_to, seed): 
-    '''Fits a classifier to the training data, saves pipeline object and produce relevant figures'''
+    """
+    Trains classifiers on the provided dataset, evaluates their performance, 
+    and saves the best performing model and relevant plots.
+
+    This function reads training and test datasets, optionally applies preprocessing,
+    compares multiple classifiers, and performs hyperparameter optimization on the best model. 
+    It saves the optimized pipeline and generates plots showing feature importance and model comparison.
+
+    Parameters
+    ----------
+    x_train : str
+        Path to the CSV file containing X training data.
+    y_train : str
+        Path to the CSV file containing y training data.
+    x_test : str
+        Path to the CSV file containing X test data.
+    y_test : str
+        Path to the CSV file containing y test data.
+    preprocessor : str
+        Path to the preprocessor object. Default is None.
+    columns_to_drop : str
+        Optional: Path to CSV file containing names of columns to drop.
+    pipeline_to : str
+        Path to the directory where the pipeline object will be saved.
+    plot_to : str
+        Path to the directory where plots will be saved.
+    seed : int
+        Random seed for reproducibility. Default is 123.
+
+    Returns
+    -------
+    None
+        This function does not return any value but writes the optimized pipeline object 
+        and plots to the specified paths.
+
+    Notes
+    -----
+    - The function uses a variety of classifiers including Decision Tree, KNN, SVM, and Logistic Regression.
+    - Hyperparameter optimization is performed on the best model based on the F1 score.
+    - The function generates plots for feature importance, model comparison, and a classification report.
+    - The function will exit if the best model is not SVM RBF, as it is set up to optimize this specific model.
+
+    Examples
+    --------
+    Command line usage:
+    $ python scripts/classification.py \
+             --x_train=data/processed/X_train.csv \
+             --y_train=data/processed/y_train.csv \
+             --x-test=data/processed/X_test.csv \
+             --y-test=data/processed/y_test.csv \
+             --preprocessor=results/models/precipit_preprocessor.pickle \
+             --columns-to-drop=data/processed/columns_to_drop.csv \
+             --pipeline-to=results/models \
+             --plot-to=results/figures \
+             --seed=522
+    """
+
     np.random.seed(seed)
     set_config(transform_output="pandas")
 

@@ -14,8 +14,39 @@ import seaborn as sns
 @click.option('--plot-to', type=str, help="Path to directory where the plots will be written to")
 
 def main(data_file, plot_to):
-    '''Performs EDA on precipitation data and saves histograms and 
-    the correlation table as PNG files.'''
+    """
+    Performs exploratory data analysis (EDA) on precipitation data. 
+    This includes generating histograms for numeric features and a correlation heatmap.
+
+    This script reads the precipitation dataset, preprocesses it by dropping certain columns, 
+    and then produces histograms for all numeric columns and a correlation heatmap. 
+    Both the histograms and heatmap are saved as PNG files.
+
+    Parameters
+    ----------
+    data_file : str
+        Path to the CSV file containing the dataset.
+    plot_to : str
+        Path to the directory where the plots will be saved.
+
+    Returns
+    -------
+    None
+        This function does not return any value but writes the generated plots to the specified path.
+
+    Notes
+    -----
+    - Histograms are created for each numeric column in the dataset.
+    - A correlation heatmap is generated using Spearman's rank correlation.
+    - The function checks for the existence of the target directory and creates it if it does not exist.
+
+    Examples
+    --------
+    Command line usage:
+    $ python scripts/eda.py  \
+          --data-file=data/van_weather_1990-01-01_2023-11-06.csv \
+          --plot-to=results/figures
+    """
 
     # Read the data and preprocess
     precipit_df = pd.read_csv(data_file).drop(columns = ['sunrise', 
