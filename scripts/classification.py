@@ -141,15 +141,16 @@ def main(x_train, y_train, x_test, y_test, preprocessor, columns_to_drop,
     result_dict = results_df.loc['test_f1', :].to_dict()
 
     # Create a bar chart with F1 scores all the tested models and publish it
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(10, 8))
     plt.bar(models.keys(), result_dict.values(), color='blue')
-    plt.xlabel('Models')
-    plt.ylabel('Test F1 Score')
-    plt.title('Test F1 Scores for Different Models')
+    plt.xlabel('Models', fontsize=15)
+    plt.ylabel('Test F1 Score', fontsize=15)
+    plt.title('Test F1 Scores for Different Models', fontsize=18)
     plt.ylim(0.8, 0.9)  # Set the y-axis limit between 0 and 1 for F1 scores
-    plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+    plt.xticks(rotation=45, fontsize=14)  # Rotate x-axis labels for better readability
+    plt.yticks(fontsize=14) 
     plt.tight_layout()
-    plt.savefig(os.path.join(plot_to, "model_comparison.png"))
+    plt.savefig(os.path.join(plot_to, "model_comparison.png"), dpi=300, bbox_inches='tight')
     
     click.echo(f'Model F1 performance has been parked at {os.path.join(plot_to, "model_comparison.png")}')
     # Save the bar chart as an image
