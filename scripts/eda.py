@@ -70,7 +70,7 @@ def main(data_file, plot_to):
         width=200
     ).repeat(
         numeric_cols,
-        columns=4
+        columns=3
     )
     # write_to path transforming
     if plot_to != '':
@@ -82,7 +82,7 @@ def main(data_file, plot_to):
 
     # Save histograms as PNG
     numeric_cols_hists.save(os.path.join(plot_to, "histogram_numeric_features.png"),
-              scale_factor=2.0)
+              scale_factor=2.0, dpi=300)
 
     # Generate and save correlation table
     correlation_table = precipit_df[numeric_cols].corr(method='spearman')
@@ -90,7 +90,7 @@ def main(data_file, plot_to):
     sns.heatmap(correlation_table, annot=True, cmap="coolwarm", fmt=".2f", vmin=-1, vmax=1)
     plt.xticks(rotation=45, ha='right', fontsize=10)
     plt.yticks(fontsize=10)
-    plt.title("Correlation Table", fontsize=16)
+    plt.title("Correlation between features", fontsize=16)
     plt.tight_layout()
     plt.savefig(os.path.join(plot_to, "correlation_heatmap.png"), bbox_inches='tight', dpi=300)
 
