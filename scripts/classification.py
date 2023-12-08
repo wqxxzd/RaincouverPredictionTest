@@ -141,15 +141,15 @@ def main(x_train, y_train, x_test, y_test, preprocessor, columns_to_drop,
     result_dict = results_df.loc['test_f1', :].to_dict()
 
     # Create a bar chart with F1 scores all the tested models and publish it
-    plt.figure(figsize=(6, 6))
+    plt.figure(figsize=(8, 8))
     plt.bar(models.keys(), result_dict.values(), color='blue')
     plt.xlabel('Models')
     plt.ylabel('Test F1 Score')
     plt.title('Test F1 Scores for Different Models')
     plt.ylim(0.8, 0.9)  # Set the y-axis limit between 0 and 1 for F1 scores
     plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-    plt.savefig(os.path.join(plot_to, "model_comparison.png"))
     plt.tight_layout()
+    plt.savefig(os.path.join(plot_to, "model_comparison.png"))
     
     click.echo(f'Model F1 performance has been parked at {os.path.join(plot_to, "model_comparison.png")}')
     # Save the bar chart as an image
@@ -201,14 +201,17 @@ def main(x_train, y_train, x_test, y_test, preprocessor, columns_to_drop,
     report_df = report_df.loc[['False', 'True']].round(2)
     report_df.index = ['No rain', 'Rain']
     
-    plt.figure(figsize=(3, 3))
-    plt.table(cellText=report_df.values,
-              colLabels=report_df.columns,
-              rowLabels=report_df.index,
-              loc='center')
-    plt.axis('off')
+    plt.figure(figsize=(5, 1))  # Adjusting the figure size
+    ax = plt.gca()
+    table = ax.table(cellText=report_df.values,
+                     colLabels=report_df.columns,
+                     rowLabels=report_df.index,
+                     loc='center',
+                     cellLoc='center')
+    table.scale(1, 1.5) 
+    ax.axis('off')
     plt.tight_layout()
-    plt.savefig(os.path.join(plot_to, "classification_report.png"))
+    plt.savefig(os.path.join(plot_to, "classification_report.png"), dpi=300, bbox_inches='tight')
     click.echo(f'Classification report has been parked at {os.path.join(plot_to, "classification_report.png")}')
 
 if __name__ == '__main__':
