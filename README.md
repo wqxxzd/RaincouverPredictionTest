@@ -64,7 +64,7 @@ python scripts/classification.py \
     --x-test=data/processed/X_test.csv \
     --y-test=data/processed/y_test.csv \
     --preprocessor=results/models/precipit_preprocessor.pickle \
-    --columns-to-drop=data/processed/columns_to_drop.csv \
+    --columns-to-drop=parameter/columns_to_drop.csv \
     --pipeline-to=results/models \
     --plot-to=results/figures \
     --seed=522
