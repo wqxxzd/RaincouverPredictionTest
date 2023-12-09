@@ -74,10 +74,31 @@ jupyter-book build reports/milestone4
 cp -r reports/milestone3/_build/html/* docs
 ```
 
+6. (Alternative) To run the analysis, using the following commands(one or more) in the terminal in the project root:
+```
+# Run the whole analysis
+make all
+
+# Only download the data
+make download_data
+
+# Only the EDA
+make eda
+
+# Only preprocess
+make drop_split_preprocess
+
+# Only classification
+make classification
+
+# Remove the analysis
+make clean
+```
+
 
 #### Exit container:
 
-6. In terminal, hit `Cntrl` + `C` to stop running the container. Then use the following command to remove the container:
+7. In terminal, hit `Cntrl` + `C` to stop running the container. Then use the following command to remove the container:
    ```
    docker compose rm -f
    ```
