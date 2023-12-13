@@ -7,4 +7,5 @@
 7. **Edited the references**: We updated our references to include missing DOIs as indicated in the peer review. This is resolved in [#89](https://github.com/UBC-MDS/RaincouverPrediction/issues/89)
 8. **Updated Contributing.md**: We realized that our GitHub usernames were not listed in the founding members section. This has been added in [#93](https://github.com/UBC-MDS/RaincouverPrediction/issues/93)
 9. **Fixed typos in the report**: Following peer review feedback about typos in our report, we addressed these in [#85](https://github.com/UBC-MDS/RaincouverPrediction/issues/85)
-10. **Updated README**: We revised the README to reflect all the above changes. This update is detailed in issue [#91](https://github.com/UBC-MDS/RaincouverPrediction/issues/91)
+10. **Added more analysis in the report**: In response to peer review feedback about the need to explain our use of the f1 score, we added reasoning and elaborated on why we have the table, using recall and precision to provide further explanation. This update is in issue [#87](https://github.com/UBC-MDS/RaincouverPrediction/issues/87).
+11. **Updated README**: We revised the README to reflect all the above changes. This update is detailed in issue [#91](https://github.com/UBC-MDS/RaincouverPrediction/issues/91)
