@@ -1,0 +1,11 @@
+1. **Cleaned up branches**: We noticed many archived branches that were no longer in use. This is resolved in issue [#97](https://github.com/UBC-MDS/RaincouverPrediction/issues/97)
+2. **Verified tests**: We lost marks in Milestone 2 because the pytest was not executed properly. This was resolved in Milestone 3 and verified in Milestone 4, as detailed in issue [#94](https://github.com/UBC-MDS/RaincouverPrediction/issues/94).
+3. **Added docstrings to scripts**: Following peer review feedback about missing docstrings, we addressed this in issue [#92](https://github.com/UBC-MDS/RaincouverPrediction/issues/92)
+4. **Changed folder structure**: Based on peer review feedback indicating that our folder structure was a bit confusing, we made changes in issue [#88](https://github.com/UBC-MDS/RaincouverPrediction/issues/88)
+5. **Added Creative Commons License for Report**: Responding to peer review comments about the missing Creative Commons License for our report, we added one in [#90](https://github.com/UBC-MDS/RaincouverPrediction/issues/90)
+6. **Adjusted Figures**: To address peer review feedback about figures being cut off in the reports, we made corrections in [#86](https://github.com/UBC-MDS/RaincouverPrediction/issues/86)
+7. **Edited the references**: We updated our references to include missing DOIs as indicated in the peer review. This is resolved in [#89](https://github.com/UBC-MDS/RaincouverPrediction/issues/89)
+8. **Updated Contributing.md**: We realized that our GitHub usernames were not listed in the founding members section. This has been added in [#93](https://github.com/UBC-MDS/RaincouverPrediction/issues/93)
+9. **Fixed typos in the report**: Following peer review feedback about typos in our report, we addressed these in [#85](https://github.com/UBC-MDS/RaincouverPrediction/issues/85)
+10. **Added more analysis in the report**: In response to peer review feedback about the need to explain our use of the f1 score, we added reasoning and elaborated on why we have the table, using recall and precision to provide further explanation. This update is in issue [#87](https://github.com/UBC-MDS/RaincouverPrediction/issues/87).
+11. **Updated README**: We revised the README to reflect all the above changes. This update is detailed in issue [#91](https://github.com/UBC-MDS/RaincouverPrediction/issues/91)
